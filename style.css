@@ -52,7 +52,7 @@ img {
 }
 
 .active {
-  padding-left: 83px;
+  padding-left: 0px;
   font-size: 20px;
   font-weight: 800;
 }
