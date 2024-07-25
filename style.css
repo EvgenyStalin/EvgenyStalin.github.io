@@ -43,9 +43,10 @@ img {
 
 .knop {
   padding-bottom: 25px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 0px;
+  padding-right: 0px;
   position: absolute;
+  justify-content: center;
   bottom: 0;
   left: 0;
   right: 0;
@@ -115,4 +116,5 @@ header nav ul li a {
 
 header nav ul li a:hover {
   border-bottom: 5px solid #fff;
+  border-radius: 4px;
 }
