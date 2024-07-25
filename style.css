@@ -43,16 +43,18 @@ img {
 
 .knop {
   padding-bottom: 25px;
-  padding-left: -35px;
-  padding-right: 115px;
+  padding-left: 100px;
+  padding-right: 100px;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+  font-size: 20px;
+  font-weight: 800;
 }
 
-.active {
-  padding-left: 18px;
+/*.active {
+  padding-left: 95px;
   font-size: 20px;
   font-weight: 800;
 }
@@ -73,7 +75,7 @@ img {
   padding-right: -30px;
   font-size: 20px;
   font-weight: 800;
-}
+}*/
 
 .balance-container {
   position: absolute;
@@ -112,22 +114,5 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-  border-bottom: 4px solid #fff;
-  border-radius: 3px;
-}
-
-.knop {
-  background-color: #ffc61e;
-  padding: 20px 25px;
-  padding-right: 80%;
-  padding-left: -85%;
-  border-radius: 15px;
-}
-
-.balance-container img:active {
-  transform: scale(0.9);
-}
-
-.balance-container img {
-  transition: 0.2s;
+  border-bottom: 5px solid #fff;
 }
