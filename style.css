@@ -52,6 +52,11 @@ img {
   right: 0;
   font-size: 20px;
   font-weight: 800;
+  background: #111111;
+  padding: 15px 17px;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /*.active {
@@ -89,9 +94,12 @@ header {
 }
 
 header .logo {
-  text-transform: uppercase;
+  position: relative;
   font-size: 20px;
   font-weight: 800;
+  /*background: red;
+  padding: 9px 17px;
+  border-radius: 8px;*/
 }
 
 header nav {
@@ -114,7 +122,58 @@ header nav ul li a {
   color: #fff
 }
 
-header nav ul li a:hover {
+header nav ul li a:not(.palka):not(.palka1):not(.palka2):hover {
   border-bottom: 5px solid #fff;
-  border-radius: 4px;
+  border-radius: 5px;
+}
+
+header nav ul li.active a:not(.palka) {
+  background: #222222;
+  padding: 5px 15px;
+  border-radius: 8px;
+  transition: all 500ms ease;
+}
+
+header nav ul li.tasks a:not(.palka1) {
+  background: #222222;
+  padding: 5px 15px;
+  border-radius: 8px;
+  transition: all 500ms ease;
+}
+
+header nav ul li.store a:not(.palka2) {
+  background: #222222;
+  padding: 5px 15px;
+  border-radius: 8px;
+  transition: all 500ms ease;
+}
+
+header nav ul li.btn a {
+  background: #222222;
+  padding: 5px 15px;
+  border-radius: 8px;
+  transition: all 500ms ease;
+}
+
+header nav ul li.active a:hover {
+  background: #444444;
+}
+
+header nav ul li.tasks a:hover {
+  background: #444444;
+}
+
+header nav ul li.store a:hover {
+  background: #444444;
+}
+
+header .hour {
+  text-align: right;
+  font-size: 20px;
+}
+
+header .hour {
+  position: relative;
+  left: 180px;
+  transform: translateX(-50%);
 }
