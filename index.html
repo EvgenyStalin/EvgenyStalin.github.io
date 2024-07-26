@@ -2,9 +2,10 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>SCRAW</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <style>
       
       img {
@@ -12,13 +13,20 @@
           width: 80%; /* Ширина 80% от экрана, чтобы хорошо отображалось на телефонах */
           max-width: 200px; /* Максимальная ширина монеты */
           margin-top: 100px;
-          margin-left: -13%;
+          margin-left: 0%;
+          justify-content: center;
           height: auto;
           -webkit-tap-highlight-color: transparent; /* Убираем синий квадратик на мобильных */
+          transition: 0.3s;
+      }
+
+      img:active {
+          transform: scale(0.8);
       }
       .balance {
           margin-top: 0px;
-          margin-left: -30px;
+          margin-left: 0px;
+          justify-content: center;
           font-size: 34px;
       }
   </style>
@@ -27,7 +35,7 @@
 
       function increaseBalance() {
           balance += 0.1; // Увеличение баланса на 0.1
-          document.getElementById('balanceDisplay').innerText = 'Balance: $' + balance.toFixed(1); // Обновление текста для отображения баланса
+          document.getElementById('balanceDisplay').innerText = "Balance: $" + balance.toFixed(1); // Обновление текста для отображения баланса
       }
   </script>
 </head>
@@ -42,7 +50,6 @@
           <li class="active"><a href="#">Mine</a></li>
           <li class="tasks"><a href="#">Tasks</a></li>
           <li class="store"><a href="#">Store</a></li>
-          <li class="btn"><a href="#">Profile</a></li>
         </ul>
       </nav>
       <!-- Добавим монету и баланс в меню -->
@@ -50,6 +57,7 @@
           <img src="https://i.postimg.cc/Y26GQjd8/photo-2024-07-25-13-43-38.png" alt="Монета" onclick="increaseBalance()" />
           <div class="balance" id="balanceDisplay">Balance: $0.0</div> <!-- Отображение баланса -->
       </div>
+      <div class="hour" id="hourdisplay">Coin's in hour: $0.0</div>
     </header>
 
     <div class="hero container">
