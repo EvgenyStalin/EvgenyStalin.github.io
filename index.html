@@ -1,69 +1,152 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>SCRAW</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <style>
-      
-      img {
-          cursor: pointer;
-          width: 80%; /* Ширина 80% от экрана, чтобы хорошо отображалось на телефонах */
-          max-width: 200px; /* Максимальная ширина монеты */
-          margin-top: 100px;
-          margin-left: 0%;
-          justify-content: center;
-          height: auto;
-          -webkit-tap-highlight-color: transparent; /* Убираем синий квадратик на мобильных */
-          transition: 0.3s;
-      }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>SCRAW</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        img {
+            cursor: pointer;
+            width: 80%;
+            /* Ширина 80% от экрана, чтобы хорошо отображалось на телефонах */
+            max-width: 200px;
+            /* Максимальная ширина монеты */
+            margin-top: 100px;
+            margin-left: 0%;
+            justify-content: center;
+            height: auto;
+            -webkit-tap-highlight-color: transparent;
+            /* Убираем синий квадратик на мобильных */
+            transition: 0.3s;
+        }
 
-      img:active {
-          transform: scale(0.8);
-      }
-      .balance {
-          margin-top: 0px;
-          margin-left: 0px;
-          justify-content: center;
-          font-size: 34px;
-      }
-  </style>
-  <script>
-      let balance = 0.0;
+        img:active {
+            transform: scale(0.8);
+        }
 
-      function increaseBalance() {
-          balance += 0.1; // Увеличение баланса на 0.1
-          document.getElementById('balanceDisplay').innerText = "Balance: $" + balance.toFixed(1); // Обновление текста для отображения баланса
-      }
-  </script>
+        .balance {
+            margin-top: 0px;
+            margin-left: 0px;
+            justify-content: center;
+            font-size: 34px;
+        }
+
+        /* Стили для загрузочного экрана */
+        #loading-screen {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-out;
+        }
+
+        #loading-screen h1 {
+            color: white;
+            font-size: 30px;
+        }
+
+        #main {
+            display: none;
+        }
+
+        /* Стили для загрузочной полосы */
+        #loading-bar {
+            width: 50%;
+            height: 10px;
+            background: grey;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 35px;
+        }
+
+        #loading-bar-fill {
+            width: 0;
+            height: 100%;
+            background: #FFD700;
+            animation: loading 1s linear forwards;
+        }
+
+        @keyframes loading {
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+
+    </script>
 </head>
-<body>
-  <div class="wrapper">
-    <header class="container">
-    <span class="logo">
-      <span style="color: #FFD700;">$</span>'CRAW<br>&nbspCOIN'<span style="color: #FFD700;">$</span>
-    </span>
-      <nav>
-        <ul class="knop">
-          <li class="active"><a href="#">Mine</a></li>
-          <li class="tasks"><a href="#">Tasks</a></li>
-          <li class="store"><a href="#">Store</a></li>
-        </ul>
-      </nav>
-      <!-- Добавим монету и баланс в меню -->
-      <div class="balance-container" style="text-align: center; margin: 20px 0;">
-          <img src="https://i.postimg.cc/Y26GQjd8/photo-2024-07-25-13-43-38.png" alt="Монета" onclick="increaseBalance()" />
-          <div class="balance" id="balanceDisplay">Balance: $0.0</div> <!-- Отображение баланса -->
-      </div>
-      <div class="hour" id="hourdisplay">Coin's in hour: $0.0</div>
-    </header>
 
-    <div class="hero container">
-      <div class="hero--info">
-      </div>
+<body>
+    <div id="loading-screen">
+        <h1><span style="color: #FFD700;">$</span>'CRAW<br>&nbspCOIN'<span style="color: #FFD700;">$</span></h1>
+        <div id="loading-bar">
+            <div id="loading-bar-fill"></div>
+        </div>
     </div>
-  </div>
+
+    <div id="main" class="screen">
+        <div class="wrapper">
+            <header class="container">
+                <span class="logo">
+                    <span style="color: #FFD700;">$</span>'CRAW<br>&nbspCOIN'<span style="color: #FFD700;">$</span>
+                </span>
+
+                <!-- Добавим монету и баланс в меню -->
+                <div class="balance-container" style="text-align: center; margin: 20px 0;">
+                    <div class="coin-container" id="coin-container">
+                        <img src="https://i.postimg.cc/Y26GQjd8/photo-2024-07-25-13-43-38.png" alt="Монета" />
+                    </div>
+                    <div class="balance" id="balanceDisplay">Balance: $0.0</div> <!-- Отображение баланса -->
+                </div>
+                <div class="hour" id="hourdisplay">Coin's in hour: $0.0</div>
+            </header>
+            <div class="hero container">
+                <div class="hero--info">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tasks" class="screen">
+        <h1 class="tasks1">Tasks:</h1>
+        <h2 class="job1">1. Subscribe to telegram channel. +250$&nbsp
+        <a href="https://t.me/+fh9XoYzrhO5mYmY6">
+        <i id="cl" class='bx bxs-invader'></i>
+        </a></h2>
+        <h3 class="job2">2. Give 5 reactions to post. +300$&nbsp
+        <a href="https://t.me/+fh9XoYzrhO5mYmY6">
+        <i id="cl" class='bx bxs-invader'></i>
+        </a></h3>
+        <h4 class="job3">Продолжение следует...
+        <a href="https://t.me/+fh9XoYzrhO5mYmY6">
+        <i id="cl" class='bx bxs-invader'></i>
+        </a></h4>
+    </div>
+
+    <div id="store" class="screen">
+        <h1>Store</h1>
+    </div>
+
+    <nav>
+        <ul class="knop">
+            <li class="active"><a href="#">Mine</a></li>
+            <li class="tasks"><a href="#">Tasks</a></li>
+            <li class="store"><a href="#">Store</a></li>
+        </ul>
+    </nav>
+
+    <script src="script.js"></script>
+
+    <div id="ID-KEY"></div>
 </body>
+
 </html>
